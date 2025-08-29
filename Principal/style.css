@@ -6,10 +6,10 @@
             font-family: 'Poppins', sans-serif;
         } 
         :root{ 
-            --primary: #2979ff;
-            --primary-dark: #0d47a1;
-            --primary-light: #00e5ff;
-            --dark: #001f3f;
+            --primary: #2979ff;       /* azul principal */
+            --primary-dark: #0d47a1;  /* azul oscuro */
+            --primary-light: #00e5ff; /* azul celeste */
+            --dark: #001f3f;          /* fondo oscuro */
             --light: #fff;
             --gray: #333;
             --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
@@ -17,19 +17,11 @@
 
         body{ 
             min-height: 100vh;
-            background: linear-gradient(-45deg, #0d47a1, #2979ff, #00e5ff, #001f3f);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            background: linear-gradient(135deg, var(--dark), #002b5c, var(--primary-dark));
             color: var(--light);
             overflow-x: hidden;
             position: relative;
         } 
-
-        @keyframes gradientBG {
-            0%{ background-position: 0% 50%; }
-            50%{ background-position: 100% 50%; }
-            100%{ background-position: 0% 50%; }
-        }
 
         /* botones de navegacion */
         .bottom-nav{
@@ -103,6 +95,22 @@
             padding-bottom: 100px;
             position: relative;
             overflow: hidden;
+        } 
+        .hero::before{
+            content: '';
+            position: absolute;
+            top:-50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle,var(--primary-light) 0%, transparent 70%);
+            opacity: 0.15;
+            animation: pulse 8s ease-in-out infinite;
+        } 
+
+        @keyframes pulse{ 
+            0%, 100%{ transform: scale(1);} 
+            50%{ transform: scale(1.2);} 
         } 
 
         /* social link */
@@ -267,5 +275,67 @@
             to{ transform: translate(-50%, -50%) rotate(360deg);}
         }
 
-        /* responsive igual que antes (omito para no duplicar, puedes dejar los mismos breakpoints que ya tienes) */
+        /* diseño responsive */
+        @media (max-width: 1200px) {
+            .hero-content{ gap: 7rem; padding-left: 8rem;}    
+            .hero-title{ font-size: 2.5rem; }
+            .profile-img{ width: 350px; height: 350px;}
+            .circle-1{ width: 400px; height: 400px;}
+            .circle-2{ width: 450px; height: 450px;}
+        }
+        @media(max-width: 992px){
+            .hero-content{ padding-left: 7rem;}    
+            .hero-title{ font-size: 2.3rem; }
+            .profile-img{ width: 300px; height: 300px;}
+            .circle-1{ width: 350px; height: 350px;}
+            .circle-2{ width: 400px; height: 400px;}
+        }
+        @media(max-width: 768px){
+            .hero{ padding: 4rem 1rem 100px 1rem;}    
+            .hero-description{ line-height: 1.6; margin-bottom: 2rem; margin-left: 5.5rem; margin-right: 5.5rem;}
+            .hero-content{ grid-template-columns: 1fr; gap: 3rem; padding-left: 0; text-align: center;}
+            .hero-text{ order: 2;}
+            .hero-image{ order: 1;}
+            .hero-title::after{ left: 50%; transform: translateX(-50%);}
+            .cta-buttons{ justify-content: center;}
+            .social-links{ left: 1rem;}
+            .social-link{ width: 40px; height: 40px; font-size: 1rem;}
+            .nav-links{ gap: 2rem;}
+            .profile-img{ width: 280px; height: 280px;}
+            .circle-1{ width: 330px; height: 330px;}
+            .circle-2{ width: 380px; height: 380px;}
+        }
+        @media(max-width: 576px){
+            .hero{ padding-left: 3.5rem;}
+            .hero-title{ font-size: 2.5rem;}
+            .hero-subtitle{ font-size: 1rem;}
+            .profile-img{ width: 240px; height: 240px;}
+            .circle-1{ width: 290px; height: 290px;}
+            .circle-2{ width: 340px; height: 340px;}
+            .cta-buttons{ flex-direction: column;}
+            .nav-links{ gap: 1rem;}
+            .nav-link{ width: 40px; height: 40px; font-size: 1rem;}
+            .social-links{ left: 0.5rem;}
+            .social-link{ width: 35px; height: 35px; font-size: 0.9rem;}
+        }
+        @media(max-width: 380px){
+            .hero{ padding-left: 3rem;}
+            .hero-title{ font-size: 1.9rem;}
+            .hero-subtitle{ font-size: 1rem;}
+            .hero-description{ margin-left: 2.5rem; margin-right: 2.5rem;}
+            .profile-img{ width: 200px; height: 200px;}
+            .circle-1{ width: 250px; height: 250px;}
+            .circle-2{ width: 300px; height: 300px;}   
+            .nav-links{ gap: 0.5rem;}
+            .nav-link{ width: 35px; height: 35px; font-size: 1rem;}
+            .btn{ margin-left: 1rem; margin-right: 1rem;}    
+        }
+        @media(max-width: 320px){
+            .hero{ padding-left: 2.5rem;}
+            .hero-title{ font-size: 2.5rem;}
+            .circle-1{ width: 230px; height: 230px;}
+            .circle-2{ width: 280px; height: 280px;}   
+            .nav-links{ gap: 0.5rem;}
+            .social-link{ width: 30px; height: 30px; font-size: 0.8rem;}      
+        }  
     </style>
