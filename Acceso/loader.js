@@ -1,21 +1,27 @@
     <script>
 document.addEventListener("DOMContentLoaded", () => {
   const loader = document.getElementById("loader");
-  const triggers = document.querySelectorAll(".menu-trigger");
+  const triggers = document.querySelectorAll(".nav-link, .btn"); // enlaces del nav + botones
 
-  // 🔹 por seguridad: ocultar siempre al cargar
+  // ocultar siempre al cargar
   loader.classList.remove("show");
 
   triggers.forEach(link => {
     link.addEventListener("click", e => {
-      e.preventDefault();
-      loader.classList.add("show");
+      const href = link.getAttribute("href");
 
-      setTimeout(() => {
-        window.location.href = link.getAttribute("href");
-      }, 1800);
+      // solo activar loader si el enlace tiene destino válido
+      if (href && href !== "#") {
+        e.preventDefault();
+        loader.classList.add("show");
+
+        setTimeout(() => {
+          window.location.href = href;
+        }, 1500); // tiempo antes de navegar
+      }
     });
   });
 });
+
 
     </script>
