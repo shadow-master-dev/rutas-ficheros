@@ -1,24 +1,29 @@
-    <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const loader = document.getElementById("loader");
-  const triggers = document.querySelectorAll(".menu-trigger");
+<script>
+  // ===== FUNCIONES =====
+  function mostrarLoader() {
+    document.getElementById("page-loader").classList.add("show");
+  }
 
-  triggers.forEach(link => {
-    link.addEventListener("click", e => {
-      e.preventDefault(); // Evita redirección inmediata
-      const url = link.getAttribute("href");
+  function ocultarLoader() {
+    document.getElementById("page-loader").classList.remove("show");
+  }
 
-      // Mostrar loader
-      loader.classList.add("show");
-
-      // Simular espera antes de ir al link real
-      setTimeout(() => {
-        window.location.href = url;
-      }, 1500); // 1.5s de animación
+  // ===== EVENTOS =====
+  document.querySelectorAll(".nav-link").forEach(link => {
+    link.addEventListener("click", function(e) {
+      const url = this.getAttribute("href");
+      if(url && url !== "#"){
+        e.preventDefault();
+        mostrarLoader(); // mostrar loader tipo slider
+        setTimeout(() => {
+          window.location.href = url;
+        }, 1500);
+      }
     });
   });
-});
 
-
-
-    </script>
+  // Al cargar la página, ocultar loader
+  window.addEventListener("load", () => {
+    ocultarLoader();
+  });
+</script>
