@@ -3,15 +3,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const loader = document.getElementById("loader");
   const triggers = document.querySelectorAll(".menu-trigger");
 
+  // 🔹 por seguridad: ocultar siempre al cargar
+  loader.classList.remove("show");
+
   triggers.forEach(link => {
     link.addEventListener("click", e => {
-      e.preventDefault(); // evitar salto inmediato
+      e.preventDefault();
       loader.classList.add("show");
 
-      // Simulación de espera antes de ir al link real
       setTimeout(() => {
         window.location.href = link.getAttribute("href");
-      }, 1800); // 1.8s con animación elegante
+      }, 1800);
     });
   });
 });
