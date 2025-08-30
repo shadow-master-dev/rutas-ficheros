@@ -11,7 +11,7 @@
   flex-direction: column;
   opacity: 0;
   visibility: hidden;
-  pointer-events: none; /* evita bloquear clics cuando está oculto */
+  pointer-events: none; /* evita interacción cuando está oculto */
   transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
@@ -48,7 +48,6 @@
   border-radius: 50%;
   animation: spin 1.2s linear infinite;
 }
-
 .ring::after {
   content: "";
   position: absolute;
@@ -64,7 +63,6 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-
 @keyframes spinReverse {
   0% { transform: rotate(360deg); }
   100% { transform: rotate(0deg); }
