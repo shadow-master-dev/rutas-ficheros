@@ -1,30 +1,30 @@
 <style>
-    body {
-      background-color:  rgba(58, 103, 177, 30%); //rgba(205, 180, 219, 30%);
-    }
+  body {
+    background-color: rgba(58, 103, 177, 0.3); /* rgba(205, 180, 219, 0.3) */
+  }
 
-    .card {
-      width: 400px;
-      margin: auto;
-      margin-top: 30px;
-    }
+  .card {
+    width: 400px;
+    margin: auto;
+    margin-top: 30px;
+  }
 
-    .input-group-text {
-      width: 100px;
-      display: inline-block;
-    }
+  .input-group-text {
+    width: 100px;
+    display: inline-block;
+  }
 
-    .mycolor {
-      background-color: #3a67b1; //#6d3b89;
-    }
+  .mycolor {
+    background-color: #3a67b1; /* #6d3b89; */
+  }
 
-    .color {
-      color: #3a67b1; //#6d3b89;
-    }
+  .color {
+    color: #3a67b1; /* #6d3b89; */
+  }
 
-    .img {
-      width: 60px;
-      margin: auto;
-      display: inline-block;
-    }
-  </style>
+  .img {
+    width: 60px;
+    margin: auto;
+    display: inline-block;
+  }
+</style>
